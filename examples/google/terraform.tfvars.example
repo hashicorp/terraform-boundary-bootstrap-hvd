@@ -1,0 +1,10 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
+region                  = "<region>"
+project_id              = "<project_id>"
+keyring_name            = "<keyring-name>"
+key_name                = "<key-name>"
+boundary_endpoint       = "<boundary-fqdn>"
+global_admin_login_name = "<admin>"
+global_admin_password   = "<password>"

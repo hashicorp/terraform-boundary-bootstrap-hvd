@@ -1,0 +1,8 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
+keyvault_resource_group_name = "<keyvault-resource-group-name>"
+keyvault_name                = "<keyvault-name>"
+boundary_endpoint            = "<boundary-fqdn>"
+global_admin_login_name      = "<admin>"
+global_admin_password        = "<password>"

@@ -1,0 +1,8 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
+region                  = "<region>"
+aws_kms_key_arn         = "<aws-kms-arn-recovery-key>"
+boundary_endpoint       = "<boundary-fqdn>"
+global_admin_login_name = "<admin>"
+global_admin_password   = "<password>"
