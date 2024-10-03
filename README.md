@@ -1,12 +1,13 @@
 # Boundary Bootstrap
 
-Terraform module used by HashiCorp Professional Services to bootstrap a Boundary Controller(s). When Boundary is first deployed the database must be initialized before it can be used. During deployment of the Controller, the database is partially initialized. This module will complete initialized using the Boundary Terraform Provider.
+Terraform module used by HashiCorp Professional Services to bootstrap a Boundary Controller(s). When Boundary is first deployed the database must be initialized before it can be used. During deployment of the Controller, the database is partially initialized. This module completes the initilization using the Boundary Terraform Provider.
+
 The following resources are created:
 
 - Global Scope
 - Enable Password authentication
-- create a global admin role
-- create a admin user and set a password
+- Global admin role
+- Admin user with password
 
 ## Prerequisites
 
@@ -28,45 +29,36 @@ The following resources are created:
 
 1. Nested within the [examples](./examples/) directory are subdirectories that contain ready-made Terraform configurations of example scenarios for how to call and deploy this module. To get started, choose an example scenario. There is an example per cloud.
 
->📝 Note: The Azure example must be run from the Controller locally, due to issue with the provider trying to hit an internal Azure endpoint that is only accessible from within Azure.
+    >📝 Note: The Azure example must be run from the Controller locally, due to an issue with the provider trying to use an internal Azure endpoint that is only accessible from within Azure.
 
-2. Copy all of the Terraform files from your example scenario of choice into a new destination directory to create your root Terraform configuration that will manage your Boundary deployment. If you are not sure where to create this new directory, it is common for us to see users create an `environments/` directory at the root of this repo, and then a subdirectory for each Boundary instance deployment, like so:
+1. Copy all of the Terraform files from your example scenario of choice into a new destination directory to create your root Terraform configuration that will manage your Boundary deployment. If you are not sure where to create this new directory, it is common for us to see users create an `environments/` directory at the root of this repo, and then a subdirectory for each Boundary instance deployment, like so:
 
-```sh
-.
-└── environments
-    ├── production
-    │   ├── backend.tf
-    │   ├── main.tf
-    │   ├── outputs.tf
-    │   ├── terraform.tfvars
-    │   └── variables.tf
-    └── sandbox
-        ├── backend.tf
-        ├── main.tf
-        ├── outputs.tf
-        ├── terraform.tfvars
-        └── variables.tf
-```
+    ```sh
+    .
+    └── environments
+        ├── production
+        │   ├── backend.tf
+        │   ├── main.tf
+        │   ├── outputs.tf
+        │   ├── terraform.tfvars
+        │   └── variables.tf
+        └── sandbox
+            ├── backend.tf
+            ├── main.tf
+            ├── outputs.tf
+            ├── terraform.tfvars
+            └── variables.tf
+    ```
 
-  >📝 Note: in this example, the user will have two separate Boundary deployments; one for their `sandbox` environment, and one for their `production` environment. This is recommended, but not required.
+    >📝 Note: in this example, the user will have two separate Boundary deployments; one for their `sandbox` environment, and one for their `production` environment. This is recommended, but not required.
 
-3. (Optional) Uncomment and update the applicable backend configuration provided in the `backend.tf` file with your own custom values. While this step is highly recommended, it is technically not required to use a remote backend config for your Boundary deployment.
+1. (Optional) Uncomment and update the applicable backend configuration provided in the `backend.tf` file with your own custom values. While this step is highly recommended, it is technically not required to use a remote backend config for your Boundary deployment.
 
-4. Populate your own custom values into the `terraform.tfvars.example` file that was provided, and remove the `.example` file extension such that the file is now named `terraform.tfvars`.
+1. Populate your own custom values into the `terraform.tfvars.example` file that was provided, and remove the `.example` file extension such that the file is now named `terraform.tfvars`.
 
-5. Navigate to the directory of your newly created Terraform configuration for your Boundary Controller deployment, and run `terraform init`, `terraform plan`, and `terraform apply`.
+1. Navigate to the directory of your newly created Terraform configuration for your Boundary Controller deployment, and run `terraform init`, `terraform plan`, and `terraform apply`.
 
-6. After your `terraform apply` finishes successfully, you should now be able to login to the Boundary Cluster using the specified username and password.
-
-## Module support
-
-This open source software is maintained by the HashiCorp Technical Field Organization, independently of our enterprise products. While our Support Engineering team provides dedicated support for our enterprise offerings, this open source software is not included.
-
-- For help using this open source software, please engage your account team.
-- To report bugs/issues with this open source software, please open them directly against this code repository using the GitHub issues feature.
-
-Please note that there is no official Service Level Agreement (SLA) for support of this software as a HashiCorp customer. This software falls under the definition of Community Software/Versions in your Agreement. We appreciate your understanding and collaboration in improving our open source projects.
+1. After your `terraform apply` finishes successfully, you should now be able to login to the Boundary Cluster using the specified username and password.
 
 ## Module support
 
